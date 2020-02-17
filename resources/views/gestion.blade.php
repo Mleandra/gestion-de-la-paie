@@ -48,8 +48,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Simple Table</h4>
-                        <p class="card-category"> Here is a subtitle for this table</p>
+                        <h4 class="card-title ">Employé</h4>
+                        <p class="card-category"> {{ date('D d M Y') }}</p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -69,43 +69,38 @@
                                     <td>Dakota Rice</td>
                                     <td>Niger</td>
                                     <td>Oud-Turnhout</td>
+                                    <td>Commercial</td>
                                     <td class="text-primary">$36,738</td>
+                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td class="text-primary">$23,789</td>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>Niger</td>
+                                    <td>Oud-Turnhout</td>
+                                    <td>Commercial</td>
+                                    <td class="text-primary">$36,738</td>
+                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>Netherlands</td>
-                                    <td>Baileux</td>
-                                    <td class="text-primary">$56,142</td>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>Niger</td>
+                                    <td>Oud-Turnhout</td>
+                                    <td>Commercial</td>
+                                    <td class="text-primary">$36,738</td>
+                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
                                 </tr>
                                 <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>Korea, South</td>
-                                    <td>Overland Park</td>
-                                    <td class="text-primary">$38,735</td>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>Niger</td>
+                                    <td>Oud-Turnhout</td>
+                                    <td>Commercial</td>
+                                    <td class="text-primary">$36,738</td>
+                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Doris Greene</td>
-                                    <td>Malawi</td>
-                                    <td>Feldkirchen in Kärnten</td>
-                                    <td class="text-primary">$63,542</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Mason Porter</td>
-                                    <td>Chile</td>
-                                    <td>Gloucester</td>
-                                    <td class="text-primary">$78,615</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
