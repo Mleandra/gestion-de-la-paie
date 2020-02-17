@@ -1,13 +1,13 @@
 @extends('templates_gestion')
 @section('active')
     <li class="nav-item active  ">
-        <a class="nav-link" href="{{route('dashboard')}}">
+        <a class="nav-link" href="{{route('employer.index')}}">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="{{route('add')}}">
+        <a class="nav-link" href="{{route('employer.create')}}">
             <i class="material-icons">person</i>
             <p>Ajouter un employer</p>
         </a>

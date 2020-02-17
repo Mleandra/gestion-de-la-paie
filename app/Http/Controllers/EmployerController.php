@@ -17,7 +17,7 @@ class EmployerController extends Controller
      */
     public function index()
     {
-
+        return view('Dashbord');
     }
 
     /**

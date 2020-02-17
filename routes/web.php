@@ -20,3 +20,7 @@ Route::get('/ajouter_employer',function (){
 Route::get('/gestion',function (){
     return view('gestion');
 })->name('gestion');
+
+Route::resources([
+    'employer' => 'EmployerController',
+]);
