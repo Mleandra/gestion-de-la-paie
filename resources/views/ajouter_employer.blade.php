@@ -53,7 +53,7 @@
                         <p class="card-category">Complete les differents champs</p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{route('sauvegarde')}}" method="post">
                             {{csrf_field()}}
                             <div class="row">
                                 <div class="col-md-6">

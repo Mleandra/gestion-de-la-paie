@@ -14,9 +14,10 @@
 Route::get('/', function () {
     return view('Dashbord');
 })->name('dashboard');
-Route::get('/ajouter_employer',function (){
-    return view('ajouter_employer');
-})->name('add');
+Route::get('/ajouter_employer','EmployerController@create')->name('add');
+
+Route::post('/ajouter_employer','EmployerController@store')->name('sauvegarde');
+
 Route::get('/gestion',function (){
     return view('gestion');
 })->name('gestion');
