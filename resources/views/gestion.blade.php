@@ -53,20 +53,32 @@
                                 </thead>
                                 <tbody>
                                 @foreach($employes as $employe)
-                                    <tr>
-                                        <form method="post" action="{{route('absence')}}">
-                                            {{@csrf_field()}}
-                                            <td>{{$employe->id}} <input type="hidden" name="employer_id" value="{{$employe->id}}"></td>
+                                    @foreach( $contrat as $contrats)
+                                        @if ($contrats->employer_id == $employe->id and  $contrats->status == true)
+                                            <tr>
+                                                <form method="post" action="{{route('absence')}}">
+                                                    {{@csrf_field()}}
 
-                                            <td>{{$employe->nom}}, {{$employe->prenom}}</td>
-                                            <td>{{$employe->cni}}</td>
-                                            <td>{{$employe->ville}}</td>
-                                            <td>{{$employe->poste->nom}}</td>
-                                            <td class="text-primary">{{$employe->poste->salaire}} FCFA</td>
-                                            <td class="flex-row" > <button type="submit" class=" btn btn-primary bg-danger">Absent</button><a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
-                                        </form>
-                                    </tr>
+                                                    <td>{{$employe->id}} <input type="hidden" name="employer_id" value="{{$employe->id}}"></td>
 
+                                                    <td>{{$employe->nom}}, {{$employe->prenom}}</td>
+                                                    <td>{{$employe->cni}}</td>
+                                                    <td>{{$employe->ville}}</td>
+                                                    <td>{{$employe->poste->nom}}</td>
+                                                    <td class="text-primary">{{$employe->poste->salaire}} FCFA</td>
+                                                    <td class="flex-row" >
+                                                        @if ($employe->est_absent()==1)
+                                                            <a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
+                                                        @else
+                                                            <button type="submit" class=" btn btn-primary bg-danger ">Absent</button>
+                                                            <a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
+                                                        @endif
+
+
+                                                </form>
+                                            </tr>
+                                        @endif
+                                    @endforeach
                                 @endforeach
 
 

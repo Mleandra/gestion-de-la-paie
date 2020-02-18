@@ -35,7 +35,8 @@ class EmployerController extends Controller
     {
         $poste = Postes::all();
         $type = TypesContrat::all();
-        return view('ajouter_employer', ["postes" => $poste, "type" => $type]);
+        $contrat = Contrat::all();
+        return view('ajouter_employer', ["postes" => $poste, "type" => $type, "contrats" => $contrat]);
         //
     }
 
@@ -58,7 +59,7 @@ class EmployerController extends Controller
             'telephone' => 'required',
             'poste' => 'required',
             'email' => 'required',
-            'sexe'=> 'required',
+            'sexe' => 'required',
             'date_debut' => 'required',
             'date_fin' => 'required',
         ]);
@@ -93,6 +94,7 @@ class EmployerController extends Controller
                 'type_id' => $type,
                 'date_debut' => $request->get('date_debut'),
                 'date_fin' => $request->get('date_fin'),
+                'status' => true,
             ]);
 
 
@@ -116,7 +118,7 @@ class EmployerController extends Controller
      */
     public function show(Employer $employer)
     {
-        //return $employer;
+
         return view('employe', ['employe' => $employer]);
     }
 

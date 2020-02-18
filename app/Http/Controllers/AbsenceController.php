@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Absence;
+use App\Postes;
+use App\TypesContrat;
+use App\Contrat;
+use App\Employer;
 use Illuminate\Http\Request;
 
 class AbsenceController extends Controller
@@ -24,7 +28,11 @@ class AbsenceController extends Controller
      */
     public function create()
     {
-        //
+        $poste = Postes::all();
+        $type = TypesContrat::all();
+        $contrat=Contrat::all();
+        $employes=Employer::all();
+        return view('gestion', ["postes" => $poste, "type" => $type, "contrat"=>$contrat,"employes"=>$employes]);
     }
 
     /**
@@ -35,7 +43,7 @@ class AbsenceController extends Controller
      */
     public function store(Request $request)
     {
-        $tmp=date('d M Y');
+        $tmp=date('Y-m-d');
 
         $absence= new Absence([
             'employer_id'=>$request->get('employer_id'),

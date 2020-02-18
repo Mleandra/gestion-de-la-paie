@@ -9,4 +9,5 @@ class TypesConges extends Model
     public function conges(){
         return $this->hasMany(Conges::class);
     }
+    protected $fillable=['nom','est_payer'];
 }

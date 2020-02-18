@@ -35,7 +35,24 @@ class PostesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nom_poste' => 'required',
+            'salaire' => 'required']);
+        try {
+            $poste = new Postes([
+                'nom' => $request->get('nom_poste'),
+                'salaire' => $request->get('salaire'),
+            ]);
+            $poste->save();
+            return redirect()->back();
+        } catch (\Illuminate\Database\QueryException $exception){
+            $errorInfo = $exception->errorInfo;
+            //throw $exception;
+            return redirect()->back()->withErrors(['msg', $errorInfo])->withInput($request->input());
+        }
+
+
+
     }
 
     /**

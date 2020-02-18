@@ -15,7 +15,7 @@ class Employer extends Model
     {
         return $this->hasMany(Conges::class);
     }
-    public function absence()
+    public function absences()
     {
         return $this->hasMany(Absence::class);
     }
@@ -26,6 +26,11 @@ class Employer extends Model
             return false;
         }
         return true;
+    }
+
+
+    public function  est_absent(){
+        return ($this->absences()->whereDate('jour', '=', date('Y-m-d'))->count() > 0) ? 1 : 0;
     }
     public  function contrat(){
         return $this->hasOne(Contrat::class);

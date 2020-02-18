@@ -56,7 +56,7 @@
                         <p class="card-category">Complete les differents champs</p>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('conge.nouveau')}}" method="post">
+                        <form action="{{route('new')}}" method="post">
                             {{csrf_field()}}
 
                             <div class="row">
@@ -105,14 +105,7 @@
                                 </div>
                             <div class="row">
                                 <br>
-                                <div class="col-md-12">
 
-                                        {{-- est disable si le type de contrat  est cdi--}}
-                                        <label>Est payer</label>
-                                        <input type="checkbox" name="est_payer" class="form-control "
-                                               value="{{old('est_payer')}}" required>
-
-                                </div>
 
                             </div>
 

@@ -39,7 +39,7 @@
 
             </div>
             <div class="card-body">
-                  <form action="" method="post">
+                  <form action="{{route('newPoste')}}" method="post">
                       {{csrf_field()}}
                     <div class="row">
                         <div class="col-md-6">
@@ -62,6 +62,37 @@
             </div>
         </div>
     </div>
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">Ajouter un congés</h4>
+                    <p class="card-category"></p>
+
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {{csrf_field()}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Nom du conges</label>
+                                    <input  type=" text" name="nom"  value="{{old('nom')}}"class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Est payer</label>
+                                    <input type="checkbox" name="est_payer" class="checkbox" value="{{old('est_payer')}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success pull-right">Ajouter</button>
+                        <button type="reset" class="btn btn-info pull-center ">Reset</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header card-header-warning">

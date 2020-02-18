@@ -35,7 +35,16 @@ class CongesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $conges = new Conges([
+            'employer_id' => $request->get('employe'),
+            'type_conges_id' =>$request->get('type'),
+            'date_debut' => $request->get('date_debut'),
+            'date_fin' => $request->get('date_fin'),
+
+        ]);
+        $conges->save();
+
+        return redirect()->back();
     }
 
     /**

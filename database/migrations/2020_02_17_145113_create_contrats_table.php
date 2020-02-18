@@ -21,6 +21,7 @@ class CreateContratsTable extends Migration
             $table->foreign('type_id')->references('id')->on('types_contrats')->onDelete('cascade');
             $table->date('date_debut');
             $table->date('date_fin')->nullable();
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

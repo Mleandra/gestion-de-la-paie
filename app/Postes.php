@@ -10,4 +10,5 @@ class Postes extends Model
     {
         return $this->hasMany('App/Employer');
     }
+    protected $fillable=['nom','salaire'];
 }
