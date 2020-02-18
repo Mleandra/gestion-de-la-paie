@@ -22,7 +22,7 @@ class CreateEmployersTable extends Migration
             $table->string('lieu_naissance');
             $table->string('ville');
             $table->string('sexe');
-            $table->string('adresse ');
+            $table->string('adresse');
             $table->integer('telephone');
             $table->integer('poste_id')->unsigned();
             $table->foreign('poste_id')->references('id')->on('postes')->onDelete('cascade');;

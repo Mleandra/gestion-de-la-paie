@@ -17,10 +17,10 @@ Route::get('/', function () {
 Route::get('/ajouter_employer','EmployerController@create')->name('add');
 
 Route::post('/ajouter_employer','EmployerController@store')->name('sauvegarde');
+Route::get('/nouveau_conge','EmployerController@nouveau_conge_vue')->name('conge.nouveau');
+Route::post('/nouveau_conge','EmployerController@store');
 
-Route::get('/gestion',function (){
-    return view('gestion');
-})->name('gestion');
+Route::get('/gestion','EmployerController@all')->name('gestion');
 
 Route::resources([
     'employer' => 'EmployerController',

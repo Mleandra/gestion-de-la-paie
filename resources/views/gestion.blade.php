@@ -64,42 +64,19 @@
                                 <th>Action </th>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td>Commercial</td>
-                                    <td class="text-primary">$36,738</td>
-                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td>Commercial</td>
-                                    <td class="text-primary">$36,738</td>
-                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td>Commercial</td>
-                                    <td class="text-primary">$36,738</td>
-                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td>Commercial</td>
-                                    <td class="text-primary">$36,738</td>
-                                    <td> <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form></td>
-                                </tr>
+                                @foreach($employes as $employe)
+                                    <tr>
+                                        <td>{{$employe->id}}</td>
+                                        <td>{{$employe->nom}} {{$employe->prenom}}</td>
+                                        <td>{{$employe->cni}}</td>
+                                        <td>{{$employe->ville}}</td>
+                                        <td>{{$employe->poste->nom}}</td>
+                                        <td class="text-primary">{{$employe->poste->salaire}} FCFA</td>
+                                        <td class="flex-row" > <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form> <a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
+                                    </tr>
+
+                                @endforeach
+
 
                                 </tbody>
                             </table>

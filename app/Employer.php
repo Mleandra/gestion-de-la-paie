@@ -8,7 +8,7 @@ class Employer extends Model
 {
     public function poste()
     {
-        return $this->belongsTo('App/Poste');
+        return $this->belongsTo(Postes::class);
     }
 
     public function conges()
@@ -16,9 +16,16 @@ class Employer extends Model
         return $this->hasMany(Conges::class);
     }
 
-    public  function contrat(){
-        return $this->hasOne('App\Contrat');
+    public function est_en_conge() {
+        $result = $this->conges()->whereDay('date_fin', '>=', date('Y-m-d'));
+        if($result->isEmpty()) {
+            return false;
+        }
+        return true;
     }
-    protected $fillable=['cni','nom','prenom','date_naissance','lieu_naissance','ville','adresse','telephone','id_poste','email','sexe'];
+    public  function contrat(){
+        return $this->hasOne(Contrat::class);
+    }
+    protected $fillable=['cni','nom','prenom','date_naissance','lieu_naissance','ville','adresse','telephone','poste_id','email','sexe'];
     //
 }

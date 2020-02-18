@@ -44,9 +44,18 @@
     </div>
 @endsection
 @section('contenu')
-    <div class="container-fluid">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Ajouter un employer</h4>
@@ -94,6 +103,14 @@
                                 </div>
                             </div><br>
                             <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Ville</label>
+                                        <input type="text" value="{{old('ville')}}" name="ville" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">N° de CNI</label>
@@ -117,7 +134,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                       <select name="postes" class="custom-select " required>
+                                       <select name="poste" class="custom-select " required>
                                            <option  selected disabled>Postes</option>
                                            @foreach($postes as $pos)
                                                <option value="{{$pos->id}}">{{$pos->nom}}</option>
@@ -128,10 +145,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">salaire</label>
-                                        {{-- recuperer le salire lier au postes--}}
-                                        <input type="text" name="salaire" class="form-control" required>
-                                    </div>
+
+                                        <select  name ="sexe" class="custom-select">
+                                            <option selected disabled>Sexe</option>
+                                            <option selected value="Masculin">Masculin</option>
+                                            <option selected value="Feminin">Feminin</option>
+                                        </select> </div>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -169,9 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
 
-            </div>
         </div>
     </div>
 
