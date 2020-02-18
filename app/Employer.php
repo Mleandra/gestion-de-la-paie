@@ -15,6 +15,10 @@ class Employer extends Model
     {
         return $this->hasMany(Conges::class);
     }
+    public function absence()
+    {
+        return $this->hasMany(Absence::class);
+    }
 
     public function est_en_conge() {
         $result = $this->conges()->whereDay('date_fin', '>=', date('Y-m-d'));

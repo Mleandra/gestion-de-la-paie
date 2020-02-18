@@ -19,21 +19,9 @@
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="./typography.html">
-            <i class="material-icons">library_books</i>
-            <p>Typography</p>
-        </a>
-    </li>
-    <li class="nav-item ">
-        <a class="nav-link" href="./icons.html">
-            <i class="material-icons">bubble_chart</i>
-            <p>Icons</p>
-        </a>
-    </li>
-    <li class="nav-item ">
-        <a class="nav-link" href="./map.html">
-            <i class="material-icons">location_ons</i>
-            <p>Maps</p>
+        <a class="nav-link" href="{{route('management')}}">
+            <i class="material-icons">content_paste</i>
+            <p>management</p>
         </a>
     </li>
 @endsection
@@ -66,13 +54,17 @@
                                 <tbody>
                                 @foreach($employes as $employe)
                                     <tr>
-                                        <td>{{$employe->id}}</td>
-                                        <td>{{$employe->nom}} {{$employe->prenom}}</td>
-                                        <td>{{$employe->cni}}</td>
-                                        <td>{{$employe->ville}}</td>
-                                        <td>{{$employe->poste->nom}}</td>
-                                        <td class="text-primary">{{$employe->poste->salaire}} FCFA</td>
-                                        <td class="flex-row" > <form method="post" action="#"><button type="submit" class=" btn btn-primary bg-danger">Absent</button>{{@csrf_field()}}</form> <a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
+                                        <form method="post" action="{{route('absence')}}">
+                                            {{@csrf_field()}}
+                                            <td>{{$employe->id}} <input type="hidden" name="employer_id" value="{{$employe->id}}"></td>
+
+                                            <td>{{$employe->nom}}, {{$employe->prenom}}</td>
+                                            <td>{{$employe->cni}}</td>
+                                            <td>{{$employe->ville}}</td>
+                                            <td>{{$employe->poste->nom}}</td>
+                                            <td class="text-primary">{{$employe->poste->salaire}} FCFA</td>
+                                            <td class="flex-row" > <button type="submit" class=" btn btn-primary bg-danger">Absent</button><a href="{{route('employer.show', $employe->id )}}" class=" btn btn-primary bg-gray-500">Gerer</a></td>
+                                        </form>
                                     </tr>
 
                                 @endforeach

@@ -79,7 +79,7 @@ class EmployerController extends Controller
                 'email' => $request->get('email'),
                 'sexe' => $request->get('sexe'),
                 'poste_id' => $request->get('poste'),
-                // creer le champs sexe dans la vue
+
             ]);
 
 
