@@ -29,6 +29,15 @@
 
 @section('contenu')
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-md-8 mx-auto">
@@ -70,7 +79,7 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('newType')}}" method="post">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-md-6">
@@ -82,7 +91,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Est payer</label>
-                                    <input type="checkbox" name="est_payer" class="checkbox" value="{{old('est_payer')}}" required>
+
+                                    <input type="checkbox" name="est_payer" class="checkbox"  value="1">
                                 </div>
                             </div>
                         </div>
@@ -101,13 +111,22 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('vire')}}" method="post">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <select name="employer"  class="custom-select" required>
                                         <option selected disabled> employer</option>
+                                        @foreach($employes as $pos)
+                                            @foreach($contrat as $cos)
+                                                @if ($cos->employer_id == $pos->id  and   $cos->status == true )
+                                                     <option value="{{$pos->id}}">{{$pos->nom}} {{$pos->prenom}}</option>
+                                                @endif
+                                            @endforeach
+
+                                        @endforeach
+
                                     </select>
                                 </div>
                             </div>
@@ -127,13 +146,21 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{route('promouvoir')}}" method="post">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <select name="employer"  class="custom-select" required>
                                         <option selected disabled> employer</option>
+                                        @foreach($employes as $pos)
+                                            @foreach($contrat as $cos)
+                                                @if ($cos->employer_id == $pos->id  and   $cos->status == true )
+                                                    <option value="{{$pos->id}}">{{$pos->nom}} {{$pos->prenom}}</option>
+                                                @endif
+                                            @endforeach
+
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -141,7 +168,57 @@
                                 <div class="form-group">
                                     <select name="poste"  class="custom-select">
                                         <option selected disabled>postes</option>
+                                        @foreach($postes as $pos)
+                                            <option value="{{$pos->id}}">{{$pos->nom}}</option>
+                                        @endforeach
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success pull-right">Ajouter</button>
+                        <button type="reset" class="btn btn-info pull-center ">Reset</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div><div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">Donner une prime</h4>
+                    <p class="card-category"></p>
+
+                </div>
+                <div class="card-body">
+                    <form action="{{route('prime')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select name="employer"  class="custom-select" required>
+                                        <option selected disabled> employer</option>
+                                        @foreach($employes as $pos)
+                                            @foreach($contrat as $cos)
+                                                @if ($cos->employer_id == $pos->id  and   $cos->status == true )
+                                                    <option value="{{$pos->id}}">{{$pos->nom}} {{$pos->prenom}}</option>
+                                                @endif
+                                            @endforeach
+
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                   <label class="bmd-label-floating">montant</label>
+                                   <input type="text" class="form-control" name="montant" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">raison</label>
+                                    <input type="text" class="form-control" name="raison" required>
+
                                 </div>
                             </div>
                         </div>

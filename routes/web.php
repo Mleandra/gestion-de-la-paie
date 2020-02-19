@@ -14,11 +14,14 @@
 Route::get('/', function () {
     return view('Dashbord');
 })->name('dashboard');
-Route::get('/management', function () {
-    return view('managements');
-
-})->name('management');
+Route::get('/management', 'ContratController@create')->name('management');
 Route::post('/management','PostesController@store')->name('newPoste');
+
+Route::post('/managemen','ContratController@update')->name('vire');
+Route::post('/managements+','EmployerController@update')->name('promouvoir');
+Route::post('/managements+prime','PrimeController@store')->name('prime');
+
+Route::post('/managements','TypesCongesController@store')->name('newType');
 Route::get('/ajouter_employer','EmployerController@create')->name('add');
 
 Route::post('/ajouter_employer','EmployerController@store')->name('sauvegarde');

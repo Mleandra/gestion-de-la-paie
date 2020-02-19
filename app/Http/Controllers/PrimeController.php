@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Prime;
+use App\Employer;
 use Illuminate\Http\Request;
 
 class PrimeController extends Controller
@@ -35,7 +36,24 @@ class PrimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'employer' => 'required',
+            'montant' => 'required',
+            'raison' => 'required',]);
+        try {
+            $prime = new Prime([
+                'employer_id' => $request->get('employer'),
+                'montant' => $request->get('montant'),
+                'motif' => $request->get('raison'),
+                'date' => date('Y-m-d')
+            ]);
+            $prime->save();
+            return redirect()->back();
+        } catch (\Illuminate\Database\QueryException $exception){
+            $errorInfo = $exception->errorInfo;
+            //throw $exception;
+            return redirect()->back()->withErrors(['msg', $errorInfo])->withInput($request->input());
+        }
     }
 
     /**

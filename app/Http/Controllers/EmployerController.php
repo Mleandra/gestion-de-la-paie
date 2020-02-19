@@ -8,6 +8,7 @@ use App\Contrat;
 use App\TypesContrat;
 use App\TypesConges;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployerController extends Controller
 {
@@ -140,9 +141,22 @@ class EmployerController extends Controller
      * @param \App\Employer $employer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employer $employer)
+    public function update(Request $request)
     {
-        //
+        try {
+            $employer_id= $request->get('employer');
+            $poste= $request->get('poste');
+            $employe=Employer::all();
+            DB::table('employers')
+                ->where('id', $employer_id)
+                ->update(['poste_id' => $poste]);
+
+            return   redirect('gestion');
+    }catch (\Illuminate\Database\QueryException $exception){
+        $errorInfo = $exception->errorInfo;
+        //throw $exception;
+        return redirect()->back()->withErrors(['msg', $errorInfo])->withInput($request->input());
+    }
     }
 
     /**

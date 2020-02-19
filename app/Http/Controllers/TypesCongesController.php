@@ -35,7 +35,29 @@ class TypesCongesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $this->validate($request, [
+                'nom' => 'required',
+               ]);
+            try {
+                $paye=$request->get('est_payer');
+                if ($paye==1){
+                    $paye = $request->get('est_payer');
+                    } else{
+                    $paye = false;
+                    }
+                $type= new TypesConges([
+                    'nom' => $request->get('nom'),
+                    'est_payer'=>$paye
+
+
+                ]);
+                $type->save();
+                return redirect()->back();
+            } catch (\Illuminate\Database\QueryException $exception){
+                $errorInfo = $exception->errorInfo;
+                //throw $exception;
+                return redirect()->back()->withErrors(['msg', $errorInfo])->withInput($request->input());
+            }
     }
 
     /**
