@@ -24,6 +24,12 @@
             <p>management</p>
         </a>
     </li>
+    <li class="nav-item  ">
+        <a class="nav-link" href="{{route('fiche')}}">
+            <i class="material-icons">description</i>
+            <p>fiche</p>
+        </a>
+    </li>
 @endsection
 @section('espace_nom')
     <div class="navbar-wrapper">

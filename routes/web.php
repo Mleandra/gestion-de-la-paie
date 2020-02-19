@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('Dashbord');
 })->name('dashboard');
 Route::get('/management', 'ContratController@create')->name('management');
+Route::get('/fiche', 'PayeController@create')->name('fiche');
+Route::Post('/fiche', 'PayeController@store')->name('fiche.c');
 Route::post('/management','PostesController@store')->name('newPoste');
 
 Route::post('/managemen','ContratController@update')->name('vire');

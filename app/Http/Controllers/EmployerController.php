@@ -7,6 +7,8 @@ use App\Postes;
 use App\Contrat;
 use App\TypesContrat;
 use App\TypesConges;
+use App\Prime;
+use App\Absence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,9 +37,11 @@ class EmployerController extends Controller
     public function create()
     {
         $poste = Postes::all();
+        $prime=Prime::all();
+        $absence=Absence::all();
         $type = TypesContrat::all();
         $contrat = Contrat::all();
-        return view('ajouter_employer', ["postes" => $poste, "type" => $type, "contrats" => $contrat]);
+        return view('ajouter_employer', ["postes" => $poste, "type" => $type, "contrats" => $contrat,"absences"=>$absence,"primes"=>$prime]);
         //
     }
 

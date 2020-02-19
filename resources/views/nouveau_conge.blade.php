@@ -13,9 +13,21 @@
         </a>
     </li>
     <li class="nav-item ">
+        <a class="nav-link" href="{{route('gestion')}}">
+            <i class="material-icons">content_paste</i>
+            <p>Liste des employers</p>
+        </a>
+    </li>
+    <li class="nav-item ">
         <a class="nav-link" href="{{route('management')}}">
             <i class="material-icons">content_paste</i>
             <p>management</p>
+        </a>
+    </li>
+    <li class="nav-item  ">
+        <a class="nav-link" href="{{route('fiche')}}">
+            <i class="material-icons">description</i>
+            <p>fiche</p>
         </a>
     </li>
 

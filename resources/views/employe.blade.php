@@ -13,9 +13,21 @@
         </a>
     </li>
     <li class="nav-item ">
+        <a class="nav-link" href="{{route('gestion')}}">
+            <i class="material-icons">content_paste</i>
+            <p>Liste des employers</p>
+        </a>
+    </li>
+    <li class="nav-item ">
         <a class="nav-link" href="{{route('management')}}">
             <i class="material-icons">content_paste</i>
             <p>management</p>
+        </a>
+    </li>
+    <li class="nav-item  ">
+        <a class="nav-link" href="{{route('fiche')}}">
+            <i class="material-icons">description</i>
+            <p>fiche</p>
         </a>
     </li>
 
@@ -39,72 +51,46 @@
     <div class="container">
         <a href="{{route('conge.nouveau')}}" class="btn btn-primary">Autoriser un congé</a>
         <div class="mt-2">
-            <p class="font-medium text-xl my-2">Information de l'employé</p>
+            <p class="font-medium text-xl my-2">Information de l'employé</p><br><br>
             <div class="divider"></div>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Nom :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->nom}}</span>
-            </div>
+            </div><br><br>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Prenom :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->prenom}}</span>
-            </div>
+            </div><br><br>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Sexe :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->sexe}}</span>
-            </div>
+            </div><br><br>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Telephone :</span>
                 <span class="font-normal text-gray-700 mx-4">+237 {{$employe->telephone}}</span>
-            </div>
+            </div><br><br>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Addresse :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->ville}} - {{$employe->adresse}}</span>
             </div>
 
-        </div>
+        </div><br><br>
 
         <div class="mt-6">
-            <p class="font-medium text-xl my-2">Information professionel</p>
+            <p class="font-medium text-xl my-2">Information professionel</p><br><br>
             <div class="divider"></div>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Poste :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->poste->nom}}</span>
-            </div>
+            </div><br><br>
             <div class="flex sm:flex-wrap mt-2">
                 <span class="font-semibold text-teal-800">Salaire :</span>
                 <span class="font-normal text-gray-700 mx-4">{{$employe->poste->salaire}} FCFA</span>
-            </div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">Departement :</span>
-                <span class="font-normal text-gray-700 mx-4">Ventes et publicité</span>
-            </div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">Issue :</span>
-                <span class="font-normal text-gray-700 mx-4">Rien a signaler</span>
-            </div>
+            </div><br><br>
 
         </div>
 
-        <div class="mt-6">
-            <p class="font-medium text-xl my-2">Profil sociale</p>
-            <div class="divider"></div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">En location :</span>
-                <span class="font-normal text-gray-700 mx-4">Oui</span>
-            </div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">Stat matrimonial :</span>
-                <span class="font-normal text-gray-700 mx-4">Marié(e)</span>
-            </div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">Nombre d'enfants :</span>
-                <span class="font-normal text-gray-700 mx-4">12</span>
-            </div>
-            <div class="flex sm:flex-wrap mt-2">
-                <span class="font-semibold text-teal-800">Assurance Maladie :</span>
-                <span class="font-normal text-gray-700 mx-4">Oui</span>
-            </div>
+
 
         </div>
     </div>
